@@ -34,9 +34,17 @@ max-width:700px;
 margin:auto;
 }
 
-.top-header{
+.header-card{
+background:white;
+border-radius:26px;
+padding:22px 22px 18px;
 margin-bottom:20px;
-padding:4px 2px;
+border:1px solid #EDF3F8;
+box-shadow:0 8px 24px rgba(158,196,232,0.08);
+}
+
+.top-header{
+padding:2px;
 }
 
 .main-title{
@@ -306,9 +314,11 @@ cursor:pointer;
 
 <div class="container">
 
+<div class="header-card">
 <div class="top-header">
-<div class="main-title">reading archive ✦</div>
+<div class="main-title">GC POSTYPE ARCHIVE ✦</div>
 <div class="sub-title">your emotional library</div>
+</div>
 </div>
 
 <div class="search-section">
@@ -418,7 +428,21 @@ card.className = 'card';
 
 const stars = '★'.repeat(book.rating || 0);
 const tags = (book.tags || []).map(tag=>`<div class="meta-badge">#${tag}</div>`).join('');
-const adultMark = book.age === '성인' ? '🔞' : '';
+const adultMark = book.age === '성인'
+? `<div style="
+width:24px;
+height:24px;
+border-radius:999px;
+background:#9EC4E8;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:11px;
+font-weight:700;
+flex-shrink:0;
+">19</div>`
+: '';
 
 card.innerHTML = `
 <div class="top">
@@ -525,6 +549,11 @@ if(currentFilter === 'age') return (book.age || '').toLowerCase().includes(value
 
 renderBooks(filtered);
 }
+</script>
+
+</body>
+</html>
+
 </script>
 
 </body>
