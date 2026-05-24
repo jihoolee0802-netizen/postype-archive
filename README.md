@@ -549,10 +549,6 @@ if(currentFilter === 'age') return (book.age || '').toLowerCase().includes(value
 
 renderBooks(filtered);
 }
-</script>
-
-</body>
-</html>
 
 </script>
 
