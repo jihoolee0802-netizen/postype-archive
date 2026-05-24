@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -470,8 +469,6 @@ onclick="openEditor()"
 + 작품 추가
 </button>
 
-<!-- editor -->
-
 <div class="overlay" id="overlay">
 
 <div class="editor">
@@ -519,10 +516,6 @@ onclick="addBook()"
 
 <script>
 
-//////////////////////////////////////////////////
-// firebase
-//////////////////////////////////////////////////
-
 const firebaseConfig = {
 
 apiKey: "AIzaSyAqiZMWRoysVz49wsE6TEKeQ_M0W4MAeuo",
@@ -539,19 +532,11 @@ firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
 
-//////////////////////////////////////////////////
-// archive
-//////////////////////////////////////////////////
-
 const params =
 new URLSearchParams(location.search);
 
 const archiveId =
 params.get('archive') || 'default';
-
-//////////////////////////////////////////////////
-// elements
-//////////////////////////////////////////////////
 
 const feed =
 document.getElementById('feed');
@@ -565,10 +550,6 @@ document.getElementById('searchInput');
 let books = [];
 
 let currentFilter = 'all';
-
-//////////////////////////////////////////////////
-// open / close
-//////////////////////////////////////////////////
 
 function openEditor(){
 
@@ -589,10 +570,6 @@ overlay.style.display = 'none';
 
 });
 
-//////////////////////////////////////////////////
-// realtime sync
-//////////////////////////////////////////////////
-
 db.collection("archives")
 .doc(archiveId)
 .collection("books")
@@ -609,10 +586,6 @@ id: doc.id,
 renderBooks(books);
 
 });
-
-//////////////////////////////////////////////////
-// render
-//////////////////////////////////////////////////
 
 function renderBooks(list){
 
@@ -740,10 +713,6 @@ feed.appendChild(card);
 
 }
 
-//////////////////////////////////////////////////
-// add
-//////////////////////////////////////////////////
-
 async function addBook(){
 
 const title =
@@ -826,10 +795,6 @@ input.value = '';
 
 }
 
-//////////////////////////////////////////////////
-// filter buttons
-//////////////////////////////////////////////////
-
 document
 .querySelectorAll('.filter-btn')
 .forEach(btn=>{
@@ -850,10 +815,6 @@ runSearch();
 });
 
 });
-
-//////////////////////////////////////////////////
-// search
-//////////////////////////////////////////////////
 
 searchInput.addEventListener('input',runSearch);
 
@@ -953,4 +914,3 @@ renderBooks(filtered);
 
 </body>
 </html>
-```
