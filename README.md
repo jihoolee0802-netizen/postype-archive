@@ -619,7 +619,7 @@ onclick="window.open('${book.postype}','_blank')"
 
 <button
 class="btn open-btn"
-onclick="window.open('${book.notion}','_blank')"
+onclick="window.location.href='${book.notion}'"
 >
 열기
 </button>
