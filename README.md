@@ -1,11 +1,12 @@
+```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>POSTYPE ARCHIVE</title>
+<title>archive</title>
 
 <!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
@@ -26,8 +27,8 @@ box-sizing:border-box;
 body{
 background:#F7FAFD;
 font-family:'Pretendard',sans-serif;
-color:#111;
 padding:18px 12px 120px;
+color:#111;
 }
 
 .container{
@@ -36,38 +37,92 @@ max-width:700px;
 margin:auto;
 }
 
-.header{
-margin-bottom:22px;
+.top-header{
+margin-bottom:20px;
+padding:4px 2px;
 }
 
-.title{
-font-size:30px;
+.main-title{
+font-size:34px;
 font-weight:700;
-letter-spacing:-0.03em;
+letter-spacing:-0.05em;
+
+background:linear-gradient(
+135deg,
+#8DB8E2,
+#B8D7F2
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+line-height:1.1;
 }
 
-.subtitle{
+.sub-title{
 margin-top:8px;
-font-size:14px;
-color:#8DA8C2;
+font-size:13px;
+color:#A6B8CB;
+padding-left:2px;
 }
 
-.search-wrap{
+.search-section{
+display:flex;
+flex-direction:column;
+gap:12px;
 margin-bottom:18px;
+}
+
+.filter-row{
+display:flex;
+gap:8px;
+overflow-x:auto;
+padding-bottom:2px;
+}
+
+.filter-row::-webkit-scrollbar{
+display:none;
+}
+
+.filter-btn{
+border:none;
+background:white;
+padding:10px 14px;
+border-radius:999px;
+font-size:13px;
+font-weight:600;
+color:#7B95AF;
+cursor:pointer;
+white-space:nowrap;
+
+box-shadow:
+0 4px 14px rgba(158,196,232,0.08);
+
+border:1px solid #EDF3F8;
+}
+
+.filter-btn.active{
+background:#9EC4E8;
+color:white;
 }
 
 .search{
 width:100%;
-height:52px;
+height:54px;
+
 border:none;
 outline:none;
-border-radius:18px;
-padding:0 18px;
-font-size:15px;
+
 background:white;
 
+border-radius:18px;
+
+padding:0 18px;
+
+font-size:15px;
+
 box-shadow:
-0 4px 18px rgba(158,196,232,0.08);
+0 6px 18px rgba(158,196,232,0.08);
 }
 
 .feed{
@@ -81,10 +136,10 @@ background:white;
 border-radius:24px;
 padding:20px;
 
-border:1px solid #EEF3F8;
+border:1px solid #EDF3F8;
 
 box-shadow:
-0 6px 20px rgba(158,196,232,0.08);
+0 8px 24px rgba(158,196,232,0.08);
 
 transition:0.18s ease;
 }
@@ -97,7 +152,18 @@ transform:scale(0.985);
 display:flex;
 justify-content:space-between;
 align-items:flex-start;
-gap:12px;
+gap:10px;
+}
+
+.title-wrap{
+display:flex;
+align-items:center;
+gap:8px;
+flex-wrap:wrap;
+}
+
+.adult{
+font-size:17px;
 }
 
 .book-title{
@@ -110,24 +176,27 @@ word-break:break-word;
 .rating{
 font-size:15px;
 color:#9EC4E8;
-flex-shrink:0;
 margin-top:2px;
+flex-shrink:0;
 }
 
-.tags{
+.meta{
 display:flex;
 flex-wrap:wrap;
 gap:8px;
 margin-top:14px;
 }
 
-.tag{
+.meta-badge{
 padding:7px 12px;
 border-radius:999px;
+
 background:#EDF5FC;
-font-size:13px;
+
+font-size:12px;
+font-weight:700;
+
 color:#5F8FBF;
-font-weight:600;
 }
 
 .comment{
@@ -148,10 +217,12 @@ flex-wrap:wrap;
 .info-badge{
 padding:7px 12px;
 border-radius:999px;
+
 background:#F4F6F8;
+
 font-size:12px;
-color:#666;
 font-weight:600;
+color:#666;
 }
 
 .buttons{
@@ -191,15 +262,8 @@ transform:scale(0.97);
 .empty{
 text-align:center;
 padding:80px 20px;
-color:#9AAABA;
 font-size:15px;
-}
-
-footer{
-margin-top:42px;
-text-align:center;
-font-size:13px;
-color:#A8B8C7;
+color:#9FB0C0;
 }
 
 .add-button{
@@ -225,7 +289,7 @@ font-weight:700;
 cursor:pointer;
 
 box-shadow:
-0 10px 30px rgba(158,196,232,0.35);
+0 12px 30px rgba(158,196,232,0.35);
 
 z-index:999;
 }
@@ -301,10 +365,17 @@ font-weight:700;
 cursor:pointer;
 }
 
+footer{
+margin-top:38px;
+text-align:center;
+font-size:13px;
+color:#B4C1CD;
+}
+
 @media (max-width:480px){
 
-.title{
-font-size:26px;
+.main-title{
+font-size:30px;
 }
 
 .book-title{
@@ -320,29 +391,66 @@ font-size:14px;
 </style>
 
 </head>
+
 <body>
 
 <div class="container">
 
-<div class="header">
+<div class="top-header">
 
-<div class="title">
-POSTYPE ARCHIVE
+<div class="main-title">
+reading archive ✦
 </div>
 
-<div class="subtitle">
-my reading archive ✦
+<div class="sub-title">
+your emotional library
 </div>
 
 </div>
 
-<div class="search-wrap">
+<div class="search-section">
+
+<div class="filter-row">
+
+<button class="filter-btn active" data-filter="all">
+전체
+</button>
+
+<button class="filter-btn" data-filter="title">
+제목
+</button>
+
+<button class="filter-btn" data-filter="writer">
+작가
+</button>
+
+<button class="filter-btn" data-filter="channel">
+채널
+</button>
+
+<button class="filter-btn" data-filter="price">
+가격
+</button>
+
+<button class="filter-btn" data-filter="length">
+분량
+</button>
+
+<button class="filter-btn" data-filter="status">
+완결
+</button>
+
+<button class="filter-btn" data-filter="age">
+연령
+</button>
+
+</div>
 
 <input
 type="text"
 class="search"
 id="searchInput"
-placeholder="작품 검색..."
+placeholder="검색..."
 >
 
 </div>
@@ -372,66 +480,31 @@ onclick="openEditor()"
 작품 추가
 </div>
 
-<input
-class="input"
-id="titleInput"
-placeholder="작품 제목"
->
+<input class="input" id="titleInput" placeholder="작품 제목">
 
-<input
-class="input"
-id="ratingInput"
-type="number"
-placeholder="별점 (1~5)"
->
+<input class="input" id="ratingInput" type="number" placeholder="별점 (1~5)">
 
-<input
-class="input"
-id="tagsInput"
-placeholder="태그 (쉼표로 구분)"
->
+<input class="input" id="tagsInput" placeholder="태그 (쉼표로 구분)">
 
-<input
-class="input"
-id="writerInput"
-placeholder="작가 이름"
->
+<input class="input" id="writerInput" placeholder="작가 이름">
 
-<input
-class="input"
-id="channelInput"
-placeholder="채널 이름"
->
+<input class="input" id="channelInput" placeholder="채널 이름">
 
-<input
-class="input"
-id="commentInput"
-placeholder="한마디"
->
+<input class="input" id="commentInput" placeholder="한마디">
 
-<input
-class="input"
-id="postypeInput"
-placeholder="포스타입 링크"
->
+<input class="input" id="priceInput" placeholder="유료 / 무료">
 
-<input
-class="input"
-id="notionInput"
-placeholder="노션 링크"
->
+<input class="input" id="lengthInput" placeholder="장편 / 단편">
 
-<input
-class="input"
-id="archiveInput"
-placeholder="저장공간 이름 (예: romance)"
->
+<input class="input" id="statusInput" placeholder="완결 / 미완결">
 
-<textarea
-class="input"
-id="memoInput"
-placeholder="개인 메모 (선택)"
-></textarea>
+<input class="input" id="ageInput" placeholder="성인 / 전체">
+
+<input class="input" id="postypeInput" placeholder="포스타입 링크">
+
+<input class="input" id="notionInput" placeholder="노션 링크">
+
+<input class="input" id="archiveInput" placeholder="저장공간 이름">
 
 <button
 class="submit"
@@ -491,6 +564,8 @@ document.getElementById('searchInput');
 
 let books = [];
 
+let currentFilter = 'all';
+
 //////////////////////////////////////////////////
 // open / close
 //////////////////////////////////////////////////
@@ -521,7 +596,7 @@ overlay.style.display = 'none';
 db.collection("archives")
 .doc(archiveId)
 .collection("books")
-.orderBy("createdAt","desc")
+.orderBy("createdAt","asc")
 .onSnapshot(snapshot=>{
 
 books = snapshot.docs.map(doc=>({
@@ -548,7 +623,7 @@ if(list.length === 0){
 feed.innerHTML = `
 
 <div class="empty">
-아직 저장된 작품이 없어 👀
+검색 결과가 없어 👀
 </div>
 
 `;
@@ -570,26 +645,57 @@ const stars =
 const tags =
 (book.tags || [])
 .map(tag=>`
-<div class="tag">#${tag}</div>
+<div class="meta-badge">#${tag}</div>
 `)
 .join('');
+
+const adultMark =
+book.age === '성인'
+? '🔞'
+: '';
 
 card.innerHTML = `
 
 <div class="top">
 
+<div>
+
+<div class="title-wrap">
+
+<div class="adult">
+${adultMark}
+</div>
+
 <div class="book-title">
 ${book.title || ''}
+</div>
+
+</div>
+
+<div class="meta">
+
+${tags}
+
+<div class="meta-badge">
+${book.price || ''}
+</div>
+
+<div class="meta-badge">
+${book.length || ''}
+</div>
+
+<div class="meta-badge">
+${book.status || ''}
+</div>
+
+</div>
+
 </div>
 
 <div class="rating">
 ${stars}
 </div>
 
-</div>
-
-<div class="tags">
-${tags}
 </div>
 
 <div class="comment">
@@ -599,11 +705,11 @@ ${tags}
 <div class="info">
 
 <div class="info-badge">
-${book.writer || '작가 미입력'}
+${book.writer || '작가'}
 </div>
 
 <div class="info-badge">
-${book.channel || '채널 미입력'}
+${book.channel || '채널'}
 </div>
 
 </div>
@@ -643,6 +749,14 @@ async function addBook(){
 const title =
 document.getElementById('titleInput').value;
 
+if(!title){
+
+alert('제목 입력해줘!');
+
+return;
+
+}
+
 const rating =
 Number(document.getElementById('ratingInput').value);
 
@@ -654,51 +768,47 @@ document
 .map(tag=>tag.trim())
 .filter(Boolean);
 
-const writer =
-document.getElementById('writerInput').value;
-
-const channel =
-document.getElementById('channelInput').value;
-
-const comment =
-document.getElementById('commentInput').value;
-
-const postype =
-document.getElementById('postypeInput').value;
-
-const notion =
-document.getElementById('notionInput').value;
-
-const memo =
-document.getElementById('memoInput').value;
-
-const archive =
-document.getElementById('archiveInput').value
-|| 'default';
-
-if(!title){
-
-alert('제목 입력해줘!');
-
-return;
-
-}
-
 await db
 .collection("archives")
-.doc(archive)
+.doc(
+document.getElementById('archiveInput').value
+|| 'default'
+)
 .collection("books")
 .add({
 
 title,
+
 rating,
+
 tags,
-writer,
-channel,
-comment,
-postype,
-notion,
-memo,
+
+writer:
+document.getElementById('writerInput').value,
+
+channel:
+document.getElementById('channelInput').value,
+
+comment:
+document.getElementById('commentInput').value,
+
+price:
+document.getElementById('priceInput').value,
+
+length:
+document.getElementById('lengthInput').value,
+
+status:
+document.getElementById('statusInput').value,
+
+age:
+document.getElementById('ageInput').value,
+
+postype:
+document.getElementById('postypeInput').value,
+
+notion:
+document.getElementById('notionInput').value,
 
 createdAt: Date.now()
 
@@ -717,10 +827,37 @@ input.value = '';
 }
 
 //////////////////////////////////////////////////
+// filter buttons
+//////////////////////////////////////////////////
+
+document
+.querySelectorAll('.filter-btn')
+.forEach(btn=>{
+
+btn.addEventListener('click',()=>{
+
+document
+.querySelectorAll('.filter-btn')
+.forEach(b=>b.classList.remove('active'));
+
+btn.classList.add('active');
+
+currentFilter =
+btn.dataset.filter;
+
+runSearch();
+
+});
+
+});
+
+//////////////////////////////////////////////////
 // search
 //////////////////////////////////////////////////
 
-searchInput.addEventListener('input',()=>{
+searchInput.addEventListener('input',runSearch);
+
+function runSearch(){
 
 const value =
 searchInput.value
@@ -730,25 +867,90 @@ searchInput.value
 const filtered =
 books.filter(book=>{
 
-const target = `
+if(currentFilter === 'all'){
+
+const allText = `
 
 ${book.title}
-${book.comment}
 ${book.writer}
 ${book.channel}
+${book.comment}
+${book.price}
+${book.length}
+${book.status}
+${book.age}
 ${(book.tags || []).join(' ')}
 
 `.toLowerCase();
 
-return target.includes(value);
+return allText.includes(value);
+
+}
+
+if(currentFilter === 'title'){
+
+return (book.title || '')
+.toLowerCase()
+.includes(value);
+
+}
+
+if(currentFilter === 'writer'){
+
+return (book.writer || '')
+.toLowerCase()
+.includes(value);
+
+}
+
+if(currentFilter === 'channel'){
+
+return (book.channel || '')
+.toLowerCase()
+.includes(value);
+
+}
+
+if(currentFilter === 'price'){
+
+return (book.price || '')
+.toLowerCase()
+.includes(value);
+
+}
+
+if(currentFilter === 'length'){
+
+return (book.length || '')
+.toLowerCase()
+.includes(value);
+
+}
+
+if(currentFilter === 'status'){
+
+return (book.status || '')
+.toLowerCase()
+.includes(value);
+
+}
+
+if(currentFilter === 'age'){
+
+return (book.age || '')
+.toLowerCase()
+.includes(value);
+
+}
 
 });
 
 renderBooks(filtered);
 
-});
+}
 
 </script>
 
 </body>
 </html>
+```
