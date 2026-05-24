@@ -1,21 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
-
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
 <title>archive</title>
 
-<!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 *{
 margin:0;
 padding:0;
@@ -45,16 +43,9 @@ padding:4px 2px;
 font-size:34px;
 font-weight:700;
 letter-spacing:-0.05em;
-
-background:linear-gradient(
-135deg,
-#8DB8E2,
-#B8D7F2
-);
-
+background:linear-gradient(135deg,#8DB8E2,#B8D7F2);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-
 line-height:1.1;
 }
 
@@ -93,10 +84,7 @@ font-weight:600;
 color:#7B95AF;
 cursor:pointer;
 white-space:nowrap;
-
-box-shadow:
-0 4px 14px rgba(158,196,232,0.08);
-
+box-shadow:0 4px 14px rgba(158,196,232,0.08);
 border:1px solid #EDF3F8;
 }
 
@@ -108,20 +96,13 @@ color:white;
 .search{
 width:100%;
 height:54px;
-
 border:none;
 outline:none;
-
 background:white;
-
 border-radius:18px;
-
 padding:0 18px;
-
 font-size:15px;
-
-box-shadow:
-0 6px 18px rgba(158,196,232,0.08);
+box-shadow:0 6px 18px rgba(158,196,232,0.08);
 }
 
 .feed{
@@ -134,12 +115,8 @@ gap:14px;
 background:white;
 border-radius:24px;
 padding:20px;
-
 border:1px solid #EDF3F8;
-
-box-shadow:
-0 8px 24px rgba(158,196,232,0.08);
-
+box-shadow:0 8px 24px rgba(158,196,232,0.08);
 transition:0.18s ease;
 }
 
@@ -189,12 +166,9 @@ margin-top:14px;
 .meta-badge{
 padding:7px 12px;
 border-radius:999px;
-
 background:#EDF5FC;
-
 font-size:12px;
 font-weight:700;
-
 color:#5F8FBF;
 }
 
@@ -216,9 +190,7 @@ flex-wrap:wrap;
 .info-badge{
 padding:7px 12px;
 border-radius:999px;
-
 background:#F4F6F8;
-
 font-size:12px;
 font-weight:600;
 color:#666;
@@ -233,13 +205,10 @@ margin-top:20px;
 .btn{
 flex:1;
 height:46px;
-
 border:none;
 border-radius:16px;
-
 font-size:15px;
 font-weight:700;
-
 cursor:pointer;
 transition:0.18s ease;
 }
@@ -254,10 +223,6 @@ background:#EEF4FA;
 color:#5F8FBF;
 }
 
-.btn:active{
-transform:scale(0.97);
-}
-
 .empty{
 text-align:center;
 padding:80px 20px;
@@ -270,52 +235,36 @@ position:fixed;
 bottom:24px;
 left:50%;
 transform:translateX(-50%);
-
 width:calc(100% - 24px);
 max-width:700px;
-
 height:58px;
-
 border:none;
 border-radius:22px;
-
 background:#9EC4E8;
 color:white;
-
 font-size:17px;
 font-weight:700;
-
 cursor:pointer;
-
-box-shadow:
-0 12px 30px rgba(158,196,232,0.35);
-
+box-shadow:0 12px 30px rgba(158,196,232,0.35);
 z-index:999;
 }
 
 .overlay{
 position:fixed;
 inset:0;
-
 background:rgba(0,0,0,0.35);
-
 display:none;
 justify-content:center;
 align-items:flex-end;
-
 z-index:1000;
 }
 
 .editor{
 width:100%;
 max-width:700px;
-
 background:white;
-
 border-radius:30px 30px 0 0;
-
 padding:24px 18px 40px;
-
 max-height:92vh;
 overflow:auto;
 }
@@ -328,65 +277,27 @@ margin-bottom:20px;
 
 .input{
 width:100%;
-
 border:none;
 outline:none;
-
 background:#F5F7FA;
-
 border-radius:18px;
-
 padding:16px;
 margin-bottom:14px;
-
 font-size:15px;
 font-family:'Pretendard',sans-serif;
-}
-
-textarea{
-resize:none;
-min-height:120px;
 }
 
 .submit{
 width:100%;
 height:54px;
-
 border:none;
 border-radius:18px;
-
 background:#9EC4E8;
 color:white;
-
 font-size:16px;
 font-weight:700;
-
 cursor:pointer;
 }
-
-footer{
-margin-top:38px;
-text-align:center;
-font-size:13px;
-color:#B4C1CD;
-}
-
-@media (max-width:480px){
-
-.main-title{
-font-size:30px;
-}
-
-.book-title{
-font-size:18px;
-}
-
-.comment{
-font-size:14px;
-}
-
-}
-
 </style>
 
 </head>
@@ -396,128 +307,58 @@ font-size:14px;
 <div class="container">
 
 <div class="top-header">
-
-<div class="main-title">
-reading archive ✦
-</div>
-
-<div class="sub-title">
-your emotional library
-</div>
-
+<div class="main-title">reading archive ✦</div>
+<div class="sub-title">your emotional library</div>
 </div>
 
 <div class="search-section">
 
 <div class="filter-row">
-
-<button class="filter-btn active" data-filter="all">
-전체
-</button>
-
-<button class="filter-btn" data-filter="title">
-제목
-</button>
-
-<button class="filter-btn" data-filter="writer">
-작가
-</button>
-
-<button class="filter-btn" data-filter="channel">
-채널
-</button>
-
-<button class="filter-btn" data-filter="price">
-가격
-</button>
-
-<button class="filter-btn" data-filter="length">
-분량
-</button>
-
-<button class="filter-btn" data-filter="status">
-완결
-</button>
-
-<button class="filter-btn" data-filter="age">
-연령
-</button>
-
+<button class="filter-btn active" data-filter="all">전체</button>
+<button class="filter-btn" data-filter="title">제목</button>
+<button class="filter-btn" data-filter="writer">작가</button>
+<button class="filter-btn" data-filter="channel">채널</button>
+<button class="filter-btn" data-filter="price">가격</button>
+<button class="filter-btn" data-filter="length">분량</button>
+<button class="filter-btn" data-filter="status">완결</button>
+<button class="filter-btn" data-filter="age">연령</button>
 </div>
 
-<input
-type="text"
-class="search"
-id="searchInput"
-placeholder="검색..."
->
+<input type="text" class="search" id="searchInput" placeholder="검색...">
 
 </div>
 
 <div class="feed" id="feed"></div>
 
-<footer>
-made with love ♡
-</footer>
-
 </div>
 
-<button
-class="add-button"
-onclick="openEditor()"
->
-+ 작품 추가
-</button>
+<button class="add-button" onclick="openEditor()">+ 작품 추가</button>
 
 <div class="overlay" id="overlay">
-
 <div class="editor">
-
-<div class="editor-title">
-작품 추가
-</div>
+<div class="editor-title">작품 추가</div>
 
 <input class="input" id="titleInput" placeholder="작품 제목">
-
 <input class="input" id="ratingInput" type="number" placeholder="별점 (1~5)">
-
 <input class="input" id="tagsInput" placeholder="태그 (쉼표로 구분)">
-
 <input class="input" id="writerInput" placeholder="작가 이름">
-
 <input class="input" id="channelInput" placeholder="채널 이름">
-
 <input class="input" id="commentInput" placeholder="한마디">
-
 <input class="input" id="priceInput" placeholder="유료 / 무료">
-
 <input class="input" id="lengthInput" placeholder="장편 / 단편">
-
 <input class="input" id="statusInput" placeholder="완결 / 미완결">
-
 <input class="input" id="ageInput" placeholder="성인 / 전체">
-
 <input class="input" id="postypeInput" placeholder="포스타입 링크">
-
 <input class="input" id="notionInput" placeholder="노션 링크">
-
 <input class="input" id="archiveInput" placeholder="저장공간 이름">
 
-<button
-class="submit"
-onclick="addBook()"
->
-저장하기
-</button>
+<button class="submit" onclick="addBook()">저장하기</button>
 
 </div>
-
 </div>
 
 <script>
-
 const firebaseConfig = {
-
 apiKey: "AIzaSyAqiZMWRoysVz49wsE6TEKeQ_M0W4MAeuo",
 authDomain: "postype-archive-97f37.firebaseapp.com",
 projectId: "postype-archive-97f37",
@@ -525,49 +366,30 @@ storageBucket: "postype-archive-97f37.firebasestorage.app",
 messagingSenderId: "814038109995",
 appId: "1:814038109995:web:adbcb330229a1f88733f6e",
 measurementId: "G-58Z05345V2"
-
 };
 
 firebase.initializeApp(firebaseConfig);
-
 const db = firebase.firestore();
 
-const params =
-new URLSearchParams(location.search);
+const params = new URLSearchParams(location.search);
+const archiveId = params.get('archive') || 'default';
 
-const archiveId =
-params.get('archive') || 'default';
-
-const feed =
-document.getElementById('feed');
-
-const overlay =
-document.getElementById('overlay');
-
-const searchInput =
-document.getElementById('searchInput');
+const feed = document.getElementById('feed');
+const overlay = document.getElementById('overlay');
+const searchInput = document.getElementById('searchInput');
 
 let books = [];
-
 let currentFilter = 'all';
 
 function openEditor(){
-
 overlay.style.display = 'flex';
-
-document.getElementById('archiveInput').value =
-archiveId;
-
+document.getElementById('archiveInput').value = archiveId;
 }
 
 overlay.addEventListener('click',(e)=>{
-
 if(e.target === overlay){
-
 overlay.style.display = 'none';
-
 }
-
 });
 
 db.collection("archives")
@@ -575,341 +397,134 @@ db.collection("archives")
 .collection("books")
 .orderBy("createdAt","asc")
 .onSnapshot(snapshot=>{
-
 books = snapshot.docs.map(doc=>({
-
 id: doc.id,
 ...doc.data()
-
 }));
-
 renderBooks(books);
-
 });
 
 function renderBooks(list){
-
 feed.innerHTML = '';
 
 if(list.length === 0){
-
-feed.innerHTML = `
-
-<div class="empty">
-검색 결과가 없어 👀
-</div>
-
-`;
-
+feed.innerHTML = `<div class="empty">검색 결과가 없어 👀</div>`;
 return;
-
 }
 
 list.forEach(book=>{
-
-const card =
-document.createElement('div');
-
+const card = document.createElement('div');
 card.className = 'card';
 
-const stars =
-'★'.repeat(book.rating || 0);
-
-const tags =
-(book.tags || [])
-.map(tag=>`
-<div class="meta-badge">#${tag}</div>
-`)
-.join('');
-
-const adultMark =
-book.age === '성인'
-? '🔞'
-: '';
+const stars = '★'.repeat(book.rating || 0);
+const tags = (book.tags || []).map(tag=>`<div class="meta-badge">#${tag}</div>`).join('');
+const adultMark = book.age === '성인' ? '🔞' : '';
 
 card.innerHTML = `
-
 <div class="top">
-
 <div>
-
 <div class="title-wrap">
-
-<div class="adult">
-${adultMark}
-</div>
-
-<div class="book-title">
-${book.title || ''}
-</div>
-
+<div class="adult">${adultMark}</div>
+<div class="book-title">${book.title || ''}</div>
 </div>
 
 <div class="meta">
-
 ${tags}
-
-<div class="meta-badge">
-${book.price || ''}
+<div class="meta-badge">${book.price || ''}</div>
+<div class="meta-badge">${book.length || ''}</div>
+<div class="meta-badge">${book.status || ''}</div>
+</div>
 </div>
 
-<div class="meta-badge">
-${book.length || ''}
+<div class="rating">${stars}</div>
 </div>
 
-<div class="meta-badge">
-${book.status || ''}
-</div>
-
-</div>
-
-</div>
-
-<div class="rating">
-${stars}
-</div>
-
-</div>
-
-<div class="comment">
-“${book.comment || ''}”
-</div>
+<div class="comment">“${book.comment || ''}”</div>
 
 <div class="info">
-
-<div class="info-badge">
-${book.writer || '작가'}
-</div>
-
-<div class="info-badge">
-${book.channel || '채널'}
-</div>
-
+<div class="info-badge">${book.writer || '작가'}</div>
+<div class="info-badge">${book.channel || '채널'}</div>
 </div>
 
 <div class="buttons">
-
-<button
-class="btn read-btn"
-onclick="window.open('${book.postype}','_blank')"
->
-읽기
-</button>
-
-<button
-class="btn open-btn"
-onclick="window.open('${book.notion}','_blank')"
->
-열기
-</button>
-
+<button class="btn read-btn" onclick="window.open('${book.postype}','_blank')">읽기</button>
+<button class="btn open-btn" onclick="window.open('${book.notion}','_blank')">열기</button>
 </div>
-
 `;
 
 feed.appendChild(card);
-
 });
-
 }
 
 async function addBook(){
-
-const title =
-document.getElementById('titleInput').value;
+const title = document.getElementById('titleInput').value;
 
 if(!title){
-
 alert('제목 입력해줘!');
-
 return;
-
 }
 
-const rating =
-Number(document.getElementById('ratingInput').value);
+const rating = Number(document.getElementById('ratingInput').value);
 
-const tags =
-document
-.getElementById('tagsInput')
-.value
-.split(',')
-.map(tag=>tag.trim())
-.filter(Boolean);
+const tags = document.getElementById('tagsInput').value.split(',').map(tag=>tag.trim()).filter(Boolean);
 
-await db
-.collection("archives")
-.doc(
-document.getElementById('archiveInput').value
-|| 'default'
-)
+await db.collection("archives")
+.doc(document.getElementById('archiveInput').value || 'default')
 .collection("books")
 .add({
-
 title,
-
 rating,
-
 tags,
-
-writer:
-document.getElementById('writerInput').value,
-
-channel:
-document.getElementById('channelInput').value,
-
-comment:
-document.getElementById('commentInput').value,
-
-price:
-document.getElementById('priceInput').value,
-
-length:
-document.getElementById('lengthInput').value,
-
-status:
-document.getElementById('statusInput').value,
-
-age:
-document.getElementById('ageInput').value,
-
-postype:
-document.getElementById('postypeInput').value,
-
-notion:
-document.getElementById('notionInput').value,
-
+writer: document.getElementById('writerInput').value,
+channel: document.getElementById('channelInput').value,
+comment: document.getElementById('commentInput').value,
+price: document.getElementById('priceInput').value,
+length: document.getElementById('lengthInput').value,
+status: document.getElementById('statusInput').value,
+age: document.getElementById('ageInput').value,
+postype: document.getElementById('postypeInput').value,
+notion: document.getElementById('notionInput').value,
 createdAt: Date.now()
-
 });
 
 overlay.style.display = 'none';
 
-document
-.querySelectorAll('.input')
-.forEach(input=>{
-
+document.querySelectorAll('.input').forEach(input=>{
 input.value = '';
-
 });
-
 }
 
-document
-.querySelectorAll('.filter-btn')
-.forEach(btn=>{
-
+document.querySelectorAll('.filter-btn').forEach(btn=>{
 btn.addEventListener('click',()=>{
-
-document
-.querySelectorAll('.filter-btn')
-.forEach(b=>b.classList.remove('active'));
-
+document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
 btn.classList.add('active');
-
-currentFilter =
-btn.dataset.filter;
-
+currentFilter = btn.dataset.filter;
 runSearch();
-
 });
-
 });
 
 searchInput.addEventListener('input',runSearch);
 
 function runSearch(){
+const value = searchInput.value.toLowerCase().trim();
 
-const value =
-searchInput.value
-.toLowerCase()
-.trim();
-
-const filtered =
-books.filter(book=>{
-
+const filtered = books.filter(book=>{
 if(currentFilter === 'all'){
-
-const allText = `
-
-${book.title}
-${book.writer}
-${book.channel}
-${book.comment}
-${book.price}
-${book.length}
-${book.status}
-${book.age}
-${(book.tags || []).join(' ')}
-
-`.toLowerCase();
-
+const allText = `${book.title} ${book.writer} ${book.channel} ${book.comment} ${book.price} ${book.length} ${book.status} ${book.age} ${(book.tags || []).join(' ')}`.toLowerCase();
 return allText.includes(value);
-
 }
 
-if(currentFilter === 'title'){
-
-return (book.title || '')
-.toLowerCase()
-.includes(value);
-
-}
-
-if(currentFilter === 'writer'){
-
-return (book.writer || '')
-.toLowerCase()
-.includes(value);
-
-}
-
-if(currentFilter === 'channel'){
-
-return (book.channel || '')
-.toLowerCase()
-.includes(value);
-
-}
-
-if(currentFilter === 'price'){
-
-return (book.price || '')
-.toLowerCase()
-.includes(value);
-
-}
-
-if(currentFilter === 'length'){
-
-return (book.length || '')
-.toLowerCase()
-.includes(value);
-
-}
-
-if(currentFilter === 'status'){
-
-return (book.status || '')
-.toLowerCase()
-.includes(value);
-
-}
-
-if(currentFilter === 'age'){
-
-return (book.age || '')
-.toLowerCase()
-.includes(value);
-
-}
-
+if(currentFilter === 'title') return (book.title || '').toLowerCase().includes(value);
+if(currentFilter === 'writer') return (book.writer || '').toLowerCase().includes(value);
+if(currentFilter === 'channel') return (book.channel || '').toLowerCase().includes(value);
+if(currentFilter === 'price') return (book.price || '').toLowerCase().includes(value);
+if(currentFilter === 'length') return (book.length || '').toLowerCase().includes(value);
+if(currentFilter === 'status') return (book.status || '').toLowerCase().includes(value);
+if(currentFilter === 'age') return (book.age || '').toLowerCase().includes(value);
 });
 
 renderBooks(filtered);
-
 }
-
 </script>
 
 </body>
