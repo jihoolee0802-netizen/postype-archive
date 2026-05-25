@@ -526,18 +526,6 @@ document.createElement('div');
 
 card.className = 'card';
 
-const rating =
-Number(book.rating || 0);
-
-const filledStars =
-'★'.repeat(rating);
-
-const emptyStars =
-'☆'.repeat(5 - rating);
-
-const stars =
-`${filledStars}<span class="empty-star">${emptyStars}</span>`;
-
 const tags =
 (book.tags || [])
 .map(tag=>`
@@ -548,11 +536,7 @@ const tags =
 const adultMark = book.age === '성인'
 ? `
 <div style="
-display:flex;
-align-items:center;
-justify-content:center;
-
-padding:5px 11px;
+padding:7px 12px;
 
 border-radius:999px;
 
@@ -561,14 +545,15 @@ background:#FFE8A3;
 color:#9B6B00;
 
 font-size:12px;
-font-weight:800;
+font-weight:700;
 
 line-height:1;
 
-flex-shrink:0;
+display:flex;
+align-items:center;
+justify-content:center;
 
-box-shadow:
-0 2px 8px rgba(255,210,90,0.18);
+flex-shrink:0;
 ">
 성인
 </div>
@@ -609,10 +594,6 @@ ${book.status || ''}
 
 </div>
 
-</div>
-
-<div class="rating">
-${stars}
 </div>
 
 </div>
