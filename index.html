@@ -135,12 +135,12 @@ align-items:center;
 gap:10px;
 flex-wrap:wrap;
 }
-
 .book-title{
 font-size:20px;
 font-weight:700;
 line-height:1.4;
 word-break:break-word;
+}
 
 
 .meta{
@@ -638,9 +638,6 @@ return;
 
 }
 
-const rating =
-Number(document.getElementById('ratingInput').value);
-
 const tags =
 document
 .getElementById('tagsInput')
@@ -659,7 +656,6 @@ document.getElementById('archiveInput').value
 .add({
 
 title,
-rating,
 tags,
 
 writer:
