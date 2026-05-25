@@ -7,7 +7,6 @@
 
 <title>GC POSTYPE ARCHIVE</title>
 
-<!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 
@@ -39,7 +38,7 @@ margin:auto;
 .header-card{
 background:white;
 border-radius:26px;
-padding:22px 22px 18px;
+padding:22px;
 margin-bottom:20px;
 border:1px solid #EDF3F8;
 box-shadow:0 8px 24px rgba(158,196,232,0.08);
@@ -49,16 +48,9 @@ box-shadow:0 8px 24px rgba(158,196,232,0.08);
 font-size:34px;
 font-weight:700;
 letter-spacing:-0.05em;
-
-background:linear-gradient(
-135deg,
-#8DB8E2,
-#B8D7F2
-);
-
+background:linear-gradient(135deg,#8DB8E2,#B8D7F2);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-
 line-height:1.1;
 }
 
@@ -90,10 +82,7 @@ font-weight:600;
 color:#7B95AF;
 cursor:pointer;
 white-space:nowrap;
-
-box-shadow:
-0 4px 14px rgba(158,196,232,0.08);
-
+box-shadow:0 4px 14px rgba(158,196,232,0.08);
 border:1px solid #EDF3F8;
 }
 
@@ -105,20 +94,13 @@ color:white;
 .search{
 width:100%;
 height:54px;
-
 border:none;
 outline:none;
-
 background:white;
-
 border-radius:18px;
-
 padding:0 18px;
-
 font-size:15px;
-
-box-shadow:
-0 6px 18px rgba(158,196,232,0.08);
+box-shadow:0 6px 18px rgba(158,196,232,0.08);
 }
 
 .feed{
@@ -131,12 +113,8 @@ gap:14px;
 background:white;
 border-radius:24px;
 padding:20px;
-
 border:1px solid #EDF3F8;
-
-box-shadow:
-0 8px 24px rgba(158,196,232,0.08);
-
+box-shadow:0 8px 24px rgba(158,196,232,0.08);
 transition:0.18s ease;
 }
 
@@ -154,7 +132,7 @@ gap:10px;
 .title-wrap{
 display:flex;
 align-items:center;
-gap:8px;
+gap:10px;
 flex-wrap:wrap;
 }
 
@@ -182,12 +160,9 @@ margin-top:14px;
 .meta-badge{
 padding:7px 12px;
 border-radius:999px;
-
 background:#EDF5FC;
-
 font-size:12px;
 font-weight:700;
-
 color:#5F8FBF;
 }
 
@@ -209,9 +184,7 @@ flex-wrap:wrap;
 .info-badge{
 padding:7px 12px;
 border-radius:999px;
-
 background:#F4F6F8;
-
 font-size:12px;
 font-weight:600;
 color:#666;
@@ -226,13 +199,10 @@ margin-top:20px;
 .btn{
 flex:1;
 height:46px;
-
 border:none;
 border-radius:16px;
-
 font-size:15px;
 font-weight:700;
-
 cursor:pointer;
 transition:0.18s ease;
 }
@@ -263,52 +233,36 @@ position:fixed;
 bottom:24px;
 left:50%;
 transform:translateX(-50%);
-
 width:calc(100% - 24px);
 max-width:700px;
-
 height:58px;
-
 border:none;
 border-radius:22px;
-
 background:#9EC4E8;
 color:white;
-
 font-size:17px;
 font-weight:700;
-
 cursor:pointer;
-
-box-shadow:
-0 12px 30px rgba(158,196,232,0.35);
-
+box-shadow:0 12px 30px rgba(158,196,232,0.35);
 z-index:999;
 }
 
 .overlay{
 position:fixed;
 inset:0;
-
 background:rgba(0,0,0,0.35);
-
 display:none;
 justify-content:center;
 align-items:flex-end;
-
 z-index:1000;
 }
 
 .editor{
 width:100%;
 max-width:700px;
-
 background:white;
-
 border-radius:30px 30px 0 0;
-
 padding:24px 18px 40px;
-
 max-height:92vh;
 overflow:auto;
 }
@@ -321,17 +275,12 @@ margin-bottom:20px;
 
 .input{
 width:100%;
-
 border:none;
 outline:none;
-
 background:#F5F7FA;
-
 border-radius:18px;
-
 padding:16px;
 margin-bottom:14px;
-
 font-size:15px;
 font-family:'Pretendard',sans-serif;
 }
@@ -339,17 +288,51 @@ font-family:'Pretendard',sans-serif;
 .submit{
 width:100%;
 height:54px;
-
 border:none;
 border-radius:18px;
-
 background:#9EC4E8;
 color:white;
-
 font-size:16px;
 font-weight:700;
-
 cursor:pointer;
+}
+
+.adult-badge{
+position:relative;
+
+width:26px;
+height:26px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+flex-shrink:0;
+}
+
+.adult-badge svg{
+width:26px;
+height:26px;
+display:block;
+}
+
+.adult-number{
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-52%);
+
+font-size:10px;
+font-weight:700;
+
+color:#9EC4E8;
+
+line-height:1;
+letter-spacing:-0.02em;
+
+pointer-events:none;
 }
 
 @media (max-width:480px){
@@ -377,11 +360,9 @@ font-size:14px;
 <div class="container">
 
 <div class="header-card">
-
 <div class="main-title">
 GC POSTYPE ARCHIVE ✦
 </div>
-
 </div>
 
 <div class="search-section">
@@ -442,8 +423,6 @@ onclick="openEditor()"
 + 작품 추가
 </button>
 
-<!-- editor -->
-
 <div class="overlay" id="overlay">
 
 <div class="editor">
@@ -453,28 +432,18 @@ onclick="openEditor()"
 </div>
 
 <input class="input" id="titleInput" placeholder="작품 제목">
-
 <input class="input" id="ratingInput" type="number" placeholder="별점 (1~5)">
-
 <input class="input" id="tagsInput" placeholder="태그 (쉼표로 구분)">
-
 <input class="input" id="writerInput" placeholder="작가 이름">
-
 <input class="input" id="channelInput" placeholder="채널 이름">
-
 <input class="input" id="commentInput" placeholder="한마디">
-
 <input class="input" id="priceInput" placeholder="유료 / 무료">
-
 <input class="input" id="lengthInput" placeholder="장편 / 단편">
-
 <input class="input" id="statusInput" placeholder="완결 / 미완결">
-
 <input class="input" id="ageInput" placeholder="성인 / 전체">
-
 <input class="input" id="postypeInput" placeholder="포스타입 링크">
-
 <input class="input" id="notionInput" placeholder="노션 링크">
+<input class="input" id="archiveInput" placeholder="저장공간 이름">
 
 <button
 class="submit"
@@ -489,12 +458,7 @@ onclick="addBook()"
 
 <script>
 
-//////////////////////////////////////////////////
-// firebase
-//////////////////////////////////////////////////
-
 const firebaseConfig = {
-
 apiKey: "AIzaSyAqiZMWRoysVz49wsE6TEKeQ_M0W4MAeuo",
 authDomain: "postype-archive-97f37.firebaseapp.com",
 projectId: "postype-archive-97f37",
@@ -502,26 +466,17 @@ storageBucket: "postype-archive-97f37.firebasestorage.app",
 messagingSenderId: "814038109995",
 appId: "1:814038109995:web:adbcb330229a1f88733f6e",
 measurementId: "G-58Z05345V2"
-
 };
 
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
 
-//////////////////////////////////////////////////
-// archive 분리
-//////////////////////////////////////////////////
-
 const params =
 new URLSearchParams(location.search);
 
 const archiveId =
 params.get('archive') || 'default';
-
-//////////////////////////////////////////////////
-// elements
-//////////////////////////////////////////////////
 
 const feed =
 document.getElementById('feed');
@@ -536,13 +491,12 @@ let books = [];
 
 let currentFilter = 'all';
 
-//////////////////////////////////////////////////
-// open / close
-//////////////////////////////////////////////////
-
 function openEditor(){
 
 overlay.style.display = 'flex';
+
+document.getElementById('archiveInput').value =
+archiveId;
 
 }
 
@@ -555,10 +509,6 @@ overlay.style.display = 'none';
 }
 
 });
-
-//////////////////////////////////////////////////
-// realtime sync
-//////////////////////////////////////////////////
 
 db.collection("archives")
 .doc(archiveId)
@@ -577,10 +527,6 @@ renderBooks(books);
 
 });
 
-//////////////////////////////////////////////////
-// render
-//////////////////////////////////////////////////
-
 function renderBooks(list){
 
 feed.innerHTML = '';
@@ -588,11 +534,9 @@ feed.innerHTML = '';
 if(list.length === 0){
 
 feed.innerHTML = `
-
 <div class="empty">
 검색 결과가 없어 👀
 </div>
-
 `;
 
 return;
@@ -619,38 +563,34 @@ const tags =
 const adultMark =
 book.age === '성인'
 ? `
-<div style="
-position:relative;
-width:24px;
-height:24px;
-border:2px solid #9EC4E8;
-border-radius:999px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:10px;
-font-weight:700;
-color:#9EC4E8;
-flex-shrink:0;
-overflow:hidden;
-">
+<div class="adult-badge">
 
-<div style="
-position:absolute;
-width:34px;
-height:2px;
-background:#9EC4E8;
-transform:rotate(-45deg);
-"></div>
+<svg
+viewBox="0 0 24 24"
+xmlns="http://www.w3.org/2000/svg"
+fill="none"
+>
 
-<span style="
-position:relative;
-z-index:2;
-background:white;
-padding:0 1px;
-">
+<circle
+cx="12"
+cy="12"
+r="10"
+stroke="#9EC4E8"
+stroke-width="2"
+/>
+
+<path
+d="M7 17L17 7"
+stroke="#9EC4E8"
+stroke-width="2"
+stroke-linecap="round"
+/>
+
+</svg>
+
+<div class="adult-number">
 19
-</span>
+</div>
 
 </div>
 `
@@ -740,10 +680,6 @@ feed.appendChild(card);
 
 }
 
-//////////////////////////////////////////////////
-// add
-//////////////////////////////////////////////////
-
 async function addBook(){
 
 const title =
@@ -770,7 +706,10 @@ document
 
 await db
 .collection("archives")
-.doc(archiveId)
+.doc(
+document.getElementById('archiveInput').value
+|| 'default'
+)
 .collection("books")
 .add({
 
@@ -823,10 +762,6 @@ input.value = '';
 
 }
 
-//////////////////////////////////////////////////
-// filter buttons
-//////////////////////////////////////////////////
-
 document
 .querySelectorAll('.filter-btn')
 .forEach(btn=>{
@@ -847,10 +782,6 @@ runSearch();
 });
 
 });
-
-//////////////////////////////////////////////////
-// search
-//////////////////////////////////////////////////
 
 searchInput.addEventListener('input',runSearch);
 
@@ -948,5 +879,7 @@ renderBooks(filtered);
 
 </script>
 
+</body>
+</html>
 </body>
 </html>
