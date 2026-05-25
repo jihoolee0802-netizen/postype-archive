@@ -545,35 +545,50 @@ const tags =
 `)
 .join('');
 
-const adultMark =
-book.age === '성인'
+const adultMark = book.age === '성인'
 ? `
-<div class="adult-badge">
+<div style="
+position:relative;
+width:28px;
+height:28px;
+flex-shrink:0;
+display:flex;
+align-items:center;
+justify-content:center;
+">
 
-<svg
-viewBox="0 0 24 24"
-xmlns="http://www.w3.org/2000/svg"
-fill="none"
->
+<!-- 원 -->
+<div style="
+position:absolute;
+inset:0;
+border:3px solid #9EC4E8;
+border-radius:999px;
+box-sizing:border-box;
+"></div>
 
-<circle
-cx="12"
-cy="12"
-r="9.5"
-stroke="#9EC4E8"
-stroke-width="2.6"
-/>
+<!-- 사선 -->
+<div style="
+position:absolute;
+width:38px;
+height:4px;
+background:#9EC4E8;
+transform:rotate(-45deg);
+border-radius:999px;
+"></div>
 
-<path
-d="M5.7 18.3L18.3 5.7"
-stroke="#9EC4E8"
-stroke-width="2.8"
-stroke-linecap="round"
-/>
-
-</svg>
-
-<div class="adult-number">
+<!-- 숫자 -->
+<div style="
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:13px;
+font-weight:900;
+color:#9EC4E8;
+line-height:1;
+z-index:5;
+font-family:'Pretendard',sans-serif;
+">
 19
 </div>
 
