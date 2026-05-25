@@ -144,10 +144,17 @@ word-break:break-word;
 }
 
 .rating{
-font-size:15px;
+font-size:16px;
+font-weight:700;
+letter-spacing:0.02em;
 color:#9EC4E8;
 margin-top:2px;
 flex-shrink:0;
+font-family:'Pretendard',sans-serif;
+}
+
+.rating .empty-star{
+color:#D7E5F2;
 }
 
 .meta{
@@ -299,39 +306,31 @@ cursor:pointer;
 
 .adult-badge{
 position:relative;
-
-width:26px;
-height:26px;
-
+width:28px;
+height:28px;
 display:flex;
 align-items:center;
 justify-content:center;
-
 flex-shrink:0;
 }
 
 .adult-badge svg{
-width:26px;
-height:26px;
+width:28px;
+height:28px;
 display:block;
+overflow:visible;
 }
 
 .adult-number{
 position:absolute;
-
 top:50%;
 left:50%;
-
-transform:translate(-50%,-52%);
-
-font-size:10px;
+transform:translate(-50%,-50%);
+font-size:11px;
 font-weight:700;
-
 color:#9EC4E8;
-
 line-height:1;
-letter-spacing:-0.02em;
-
+letter-spacing:-0.03em;
 pointer-events:none;
 }
 
@@ -369,37 +368,14 @@ GC POSTYPE ARCHIVE ✦
 
 <div class="filter-row">
 
-<button class="filter-btn active" data-filter="all">
-전체
-</button>
-
-<button class="filter-btn" data-filter="title">
-제목
-</button>
-
-<button class="filter-btn" data-filter="writer">
-작가
-</button>
-
-<button class="filter-btn" data-filter="channel">
-채널
-</button>
-
-<button class="filter-btn" data-filter="price">
-가격
-</button>
-
-<button class="filter-btn" data-filter="length">
-분량
-</button>
-
-<button class="filter-btn" data-filter="status">
-완결
-</button>
-
-<button class="filter-btn" data-filter="age">
-연령
-</button>
+<button class="filter-btn active" data-filter="all">전체</button>
+<button class="filter-btn" data-filter="title">제목</button>
+<button class="filter-btn" data-filter="writer">작가</button>
+<button class="filter-btn" data-filter="channel">채널</button>
+<button class="filter-btn" data-filter="price">가격</button>
+<button class="filter-btn" data-filter="length">분량</button>
+<button class="filter-btn" data-filter="status">완결</button>
+<button class="filter-btn" data-filter="age">연령</button>
 
 </div>
 
@@ -550,8 +526,17 @@ document.createElement('div');
 
 card.className = 'card';
 
+const rating =
+Number(book.rating || 0);
+
+const filledStars =
+'★'.repeat(rating);
+
+const emptyStars =
+'☆'.repeat(5 - rating);
+
 const stars =
-'★'.repeat(book.rating || 0);
+`${filledStars}<span class="empty-star">${emptyStars}</span>`;
 
 const tags =
 (book.tags || [])
@@ -574,15 +559,15 @@ fill="none"
 <circle
 cx="12"
 cy="12"
-r="10"
+r="9.5"
 stroke="#9EC4E8"
-stroke-width="2"
+stroke-width="2.6"
 />
 
 <path
-d="M7 17L17 7"
+d="M5.7 18.3L18.3 5.7"
 stroke="#9EC4E8"
-stroke-width="2"
+stroke-width="2.8"
 stroke-linecap="round"
 />
 
@@ -714,9 +699,7 @@ document.getElementById('archiveInput').value
 .add({
 
 title,
-
 rating,
-
 tags,
 
 writer:
@@ -816,59 +799,31 @@ return allText.includes(value);
 }
 
 if(currentFilter === 'title'){
-
-return (book.title || '')
-.toLowerCase()
-.includes(value);
-
+return (book.title || '').toLowerCase().includes(value);
 }
 
 if(currentFilter === 'writer'){
-
-return (book.writer || '')
-.toLowerCase()
-.includes(value);
-
+return (book.writer || '').toLowerCase().includes(value);
 }
 
 if(currentFilter === 'channel'){
-
-return (book.channel || '')
-.toLowerCase()
-.includes(value);
-
+return (book.channel || '').toLowerCase().includes(value);
 }
 
 if(currentFilter === 'price'){
-
-return (book.price || '')
-.toLowerCase()
-.includes(value);
-
+return (book.price || '').toLowerCase().includes(value);
 }
 
 if(currentFilter === 'length'){
-
-return (book.length || '')
-.toLowerCase()
-.includes(value);
-
+return (book.length || '').toLowerCase().includes(value);
 }
 
 if(currentFilter === 'status'){
-
-return (book.status || '')
-.toLowerCase()
-.includes(value);
-
+return (book.status || '').toLowerCase().includes(value);
 }
 
 if(currentFilter === 'age'){
-
-return (book.age || '')
-.toLowerCase()
-.includes(value);
-
+return (book.age || '').toLowerCase().includes(value);
 }
 
 });
@@ -879,7 +834,5 @@ renderBooks(filtered);
 
 </script>
 
-</body>
-</html>
 </body>
 </html>
